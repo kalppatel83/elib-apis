@@ -48,7 +48,7 @@ const createUser = async (req: Request, res: Response, next: NextFunction) => {
       expiresIn: "7d",
     });
     // Response
-    res.json({ accessToken: token });
+    res.status(201).json({ accessToken: token });
   } catch (error) {
     return next(createHttpError(500, "error while signing the jwt token"));
   }
