@@ -10,11 +10,11 @@ const userSchema = new mongoose.Schema<User>(
     email: {
       type: String,
       unique: true, // will not allow same email to register
-      require: true,
+      required: true,
     },
     password: {
       type: String,
-      require: true,
+      required: true,
     },
   },
   { timestamps: true }
