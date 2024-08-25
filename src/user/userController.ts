@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import createHttpError from "http-errors";
 import userModel from "./userModel";
+import bcrypt from "bcrypt";
 
 const createUser = async (req: Request, res: Response, next: NextFunction) => {
   // This is the hirarchy ( Validation => Process => Respone )
@@ -21,6 +22,8 @@ const createUser = async (req: Request, res: Response, next: NextFunction) => {
     return next(error);
   }
 
+  //password => hash
+  const hashedPassword = await bcrypt.hash(password, 10);
   res.json({ message: "User Created" });
 };
 
