@@ -1,4 +1,4 @@
-import mongoose, { Mongoose } from "mongoose";
+import mongoose from "mongoose";
 import { Book } from "./bookTypes";
 
 const bookSchema = new mongoose.Schema<Book>(
@@ -9,7 +9,7 @@ const bookSchema = new mongoose.Schema<Book>(
     },
 
     autor: {
-      type: Mongoose.Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       required: true,
     },
     coverImage: {
