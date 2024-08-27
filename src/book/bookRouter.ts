@@ -7,7 +7,7 @@ import path from "node:path";
 // file store local(needed to give location) => s3(cloud) => then delete local file
 const upload = multer({
   dest: path.resolve(__dirname, "../../public/data/uploads"),
-  limits: { fileSize: 3e7 },
+  limits: { fileSize: 10 * 1024 * 1024 },
 });
 // Routes
 bookRouter.post(
